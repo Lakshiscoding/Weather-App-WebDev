@@ -1,0 +1,47 @@
+body {
+    font-family:Arial;
+    text-align:center;
+    padding:50px;
+    transition:0.3s;
+}
+
+.light {
+    background-color:white;
+    color:black;
+}
+
+.dark {
+    background-color:#222;
+    color:white;
+}
+
+.container {
+    border:2px solid #ccc;
+    padding:20px;
+    border-radius:10px;
+    display:inline-block;
+}
+
+input {
+    padding:8px;
+    width:200px;
+}
+
+button {
+    padding:8px 15px;
+    margin:5px;
+    cursor:pointer;
+}
+
+#result-box {
+    margin-top:20px;
+    padding:15px;
+    background-color:#87CEEB;
+    color:black;
+    border-radius:5px;
+}
+
+#history-box {
+    margin-top:20px;
+    text-align:left;
+}
