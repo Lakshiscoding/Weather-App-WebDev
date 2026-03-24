@@ -17,7 +17,8 @@ function getWeather() {
 
     saveToHistory(city);
 
-    var apiKey = "YOUR_API_KEY_HERE"; 
+    var apiKey = "3ebac56ed327bcabde7e56f98ed62493"; 
+    
     var url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=metric";
     
     var box = document.getElementById("result-box");
