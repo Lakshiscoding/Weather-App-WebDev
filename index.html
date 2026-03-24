@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Weather App</title>
+    <title>Weather App - Modern UI</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="light" id="pageBody">
 
     <div class="container">
-        <h2>Weather App</h2>
+        <h2>Weather Search</h2>
         
-        <button onclick="changeTheme('light')">Light Mode</button>
-        <button onclick="changeTheme('dark')">Dark Mode</button>
-        <br><br>
+        <div style="margin-bottom: 20px;">
+            <button onclick="changeTheme('light')">☀️ Light</button>
+            <button onclick="changeTheme('dark')">🌙 Dark</button>
+        </div>
         
-        <input type="text" id="cityInput" placeholder="Enter city name...">
-        <button onclick="getWeather()">Search</button>
+        <input type="text" id="cityInput" placeholder="Enter city...">
+        <button onclick="getWeather()">Check Weather</button>
 
         <div id="result-box">
-            Weather will show here 
+            Enter a city to see the details...
         </div>
 
         <div id="history-box">
-            <h3>Search History:</h3>
+            <strong>Recent Searches:</strong>
             <ul id="historyList"></ul>
-            <button onclick="clearHistory()">Clear</button>
+            <button onclick="clearHistory()" style="background: #ff4b2b; font-size: 12px; padding: 5px 10px;">Clear History</button>
         </div>
     </div>
 
