@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Weather App - Modern UI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast — Real-Time Weather</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
-<body class="light" id="pageBody">
+<body id="pageBody" class="dark-theme">
 
-    <div class="container">
-        <h2>Weather Search</h2>
-        
-        <div style="margin-bottom: 20px;">
-            <button onclick="changeTheme('light')">☀️ Light</button>
-            <button onclick="changeTheme('dark')">🌙 Dark</button>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <span class="logo">Sky<span>Cast</span></span>
+            <div class="theme-toggle">
+                <button id="lightBtn" onclick="changeTheme('light-theme')">&#9728; Light</button>
+                <button id="darkBtn" onclick="changeTheme('dark-theme')" class="active">&#9790; Dark</button>
+            </div>
         </div>
-        
-        <input type="text" id="cityInput" placeholder="Enter city...">
-        <button onclick="getWeather()">Check Weather</button>
+    </nav>
 
-        <div id="result-box">
-            Enter a city to see the details...
-        </div>
+    <main>
+        <section class="hero">
+            <div class="hero-inner">
+                <h1>Real-Time Weather,<br>Anywhere on Earth</h1>
+                <p class="tagline">Instant forecasts for any city in the world.</p>
+                <div class="search-bar">
+                    <input type="text" id="cityInput" placeholder="Search a city..." autocomplete="off" aria-label="City name">
+                    <button class="search-btn" onclick="getWeather()">Search</button>
+                </div>
+            </div>
+        </section>
 
-        <div id="history-box">
-            <strong>Recent Searches:</strong>
-            <ul id="historyList"></ul>
-            <button onclick="clearHistory()" style="background: #ff4b2b; font-size: 12px; padding: 5px 10px;">Clear History</button>
-        </div>
-    </div>
+        <section id="result-box" class="result-section" aria-live="polite"></section>
+
+        <section class="history-section" id="historySection">
+            <div class="history-inner">
+                <span class="history-label">Recent Searches</span>
+                <div id="historyList" class="history-chips"></div>
+                <button onclick="clearHistory()" class="clear-btn">Clear All</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Powered by <a href="https://openweathermap.org" target="_blank" rel="noopener noreferrer">OpenWeatherMap</a> &bull; &copy; 2025 SkyCast</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
