@@ -19,28 +19,28 @@
         </div>
     </nav>
 
-    <main>
-        <section class="hero">
-            <div class="hero-inner">
-                <h1>Real-Time Weather,<br>Anywhere on Earth</h1>
-                <p class="tagline">Instant forecasts for any city in the world.</p>
-                <div class="search-bar">
-                    <input type="text" id="cityInput" placeholder="Search a city..." autocomplete="off" aria-label="City name">
-                    <button class="search-btn" onclick="getWeather()">Search</button>
-                </div>
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>Real-Time Weather,<br>Anywhere on Earth</h1>
+            <p class="tagline">Instant forecasts for any city in the world.</p>
+            <div class="search-bar">
+                <input type="text" id="cityInput" placeholder="Search a city..." autocomplete="off" aria-label="City name">
+                <button class="search-btn" onclick="getWeather()">Search</button>
             </div>
-        </section>
+        </div>
+    </section>
 
+    <div class="app-layout">
         <section id="result-box" class="result-section" aria-live="polite"></section>
 
-        <section class="history-section" id="historySection">
-            <div class="history-inner">
-                <span class="history-label">Recent Searches</span>
-                <div id="historyList" class="history-chips"></div>
-                <button onclick="clearHistory()" class="clear-btn">Clear All</button>
+        <aside class="sidebar" id="historySection">
+            <div class="sidebar-header">
+                <span class="sidebar-title">Recent Searches</span>
+                <button onclick="clearHistory()" class="clear-btn">Clear</button>
             </div>
-        </section>
-    </main>
+            <div id="historyList" class="history-list"></div>
+        </aside>
+    </div>
 
     <footer>
         <p>Powered by <a href="https://openweathermap.org" target="_blank" rel="noopener noreferrer">OpenWeatherMap</a> &bull; &copy; 2025 SkyCast</p>

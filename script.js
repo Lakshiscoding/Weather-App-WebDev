@@ -137,33 +137,46 @@ function saveToHistory(city) {
 
 function showHistory() {
     let history = JSON.parse(localStorage.getItem("weatherHistory"));
+    if (history === null) history = [];
 
-    if (history === null) {
-        history = [];
-    }
-
-    const section = document.getElementById("historySection");
     const list = document.getElementById("historyList");
+    list.innerHTML = "";
 
     if (history.length === 0) {
-        section.style.display = "none";
+        const empty = document.createElement("p");
+        empty.className = "history-empty";
+        empty.textContent = "No recent searches yet.\nStart by searching a city!";
+        list.appendChild(empty);
         return;
     }
 
-    section.style.display = "";
-    list.innerHTML = "";
-
     for (let i = history.length - 1; i >= 0; i--) {
         const city = history[i];
-        const chip = document.createElement("button");
-        chip.className = "chip";
-        chip.textContent = city;
-        chip.setAttribute("aria-label", "Search weather for " + city);
-        chip.onclick = function() {
-            document.getElementById("cityInput").value = this.textContent;
+        const item = document.createElement("button");
+        item.className = "history-item";
+        item.setAttribute("aria-label", "Search weather for " + city);
+
+        const icon = document.createElement("span");
+        icon.className = "item-icon";
+        icon.textContent = "📍";
+
+        const name = document.createElement("span");
+        name.className = "item-name";
+        name.textContent = city;
+
+        const arrow = document.createElement("span");
+        arrow.className = "item-arrow";
+        arrow.textContent = "›";
+
+        item.appendChild(icon);
+        item.appendChild(name);
+        item.appendChild(arrow);
+
+        item.onclick = function() {
+            document.getElementById("cityInput").value = city;
             getWeather();
         };
-        list.appendChild(chip);
+        list.appendChild(item);
     }
 }
 
